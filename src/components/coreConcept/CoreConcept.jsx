@@ -7,25 +7,19 @@
 // and it will be an object that has all these key value pairs.
 // i.e. title as KEY and "Components" as VALUE
 
-
 // Alternatively, we can use object destructuring,
-// meaning that we can target the different properties
-// of the incoming object by name.
-// So here, we have to use the same properties
-// as we're setting here as props.
+// meaning that we can target the different properties of the incoming object by name.
+// So here, we have to use the same properties as we're setting here as props.
 // So title, description, image.
-// Also, here in this object, image, title, description,
-// we have to use these exact same words here
+// Also, here in this object, image, title, description, we have to use these exact same words here
 // between those curly braces.
-// But when doing so, JavaScript will then go ahead
-// and give us these three properties
+// But when doing so, JavaScript will then go ahead and give us these three properties
 // as standalone variables in this function here.
 
-// i.e. const CoreConcept = (image, title, description)
+// i.e. const CoreConcept = ({ image, title, description })
 
 // IMPORTANT: And you can use this object destructuring syntax here
 // with that longer (title={CORE_CONCEPTS[1].title}) or that shorter ({...CORE_CONCEPTS[0]}) props version here
-
 
 const CoreConcept = (props) => {
   return (

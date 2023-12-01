@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "./components/header/Header.jsx";
 import CoreConcept from "./components/coreConcept/CoreConcept.jsx";
 import TabButton from "./components/TabButton.jsx";
-import { CORE_CONCEPTS } from "./data.js";
+import { CORE_CONCEPTS, EXAMPLES } from "./data-with-examples.js";
 
 // useState is the Hook that will allow us to manage some component specific state,
 // which is simply some data stored by React, you could say,
@@ -10,11 +10,11 @@ import { CORE_CONCEPTS } from "./data.js";
 // to which this Hook belongs to re-execute, to be reevaluated by React, you could say.
 
 const App = () => {
-  const [tabContent, setTabContent] = useState('Please click a button')
+  const [selectedTopic, setSelectedTopic] = useState("");
 
   const handleSelect = (selectedButton) => {
     // selectedButton => 'components', 'jsx', 'props', 'state'
-    setTabContent(selectedButton);
+    setSelectedTopic(selectedButton);
   };
 
   return (
@@ -54,7 +54,22 @@ const App = () => {
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          {tabContent}
+          {/* 
+          If selectedTopic is equal to undefined(not truthy) show <p>
+          OR 
+          If selectedTopic is not equal to undefined(truthy) show <div>
+          */}
+          {!selectedTopic ? (
+            <p>Please select a topic.</p>
+          ) : (
+            <div id="tab-content">
+              <h3>{EXAMPLES[selectedTopic].title}</h3>
+              <p>{EXAMPLES[selectedTopic].description}</p>
+              <pre>
+                <code>{EXAMPLES[selectedTopic].code}</code>
+              </pre>
+            </div>
+          )}
         </section>
       </main>
     </div>

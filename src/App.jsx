@@ -47,17 +47,21 @@ const App = () => {
             We use the handleSelect with the identifier inside to check which button has been clicked,
             although it executes the same function, we get different values for different buttons.
             */}
-            <TabButton onSelect={() => handleSelect("components")}>
+            <TabButton isSelected={selectedTopic === 'components'} onSelect={() => handleSelect("components")}>
               Components
             </TabButton>
-            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+            <TabButton isSelected={selectedTopic === 'jsx'} onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+            <TabButton isSelected={selectedTopic === 'props'} onSelect={() => handleSelect("props")}>Props</TabButton>
+            <TabButton isSelected={selectedTopic === 'state'} onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
           {/* 
           If selectedTopic is equal to undefined(not truthy) show <p>
           OR 
           If selectedTopic is not equal to undefined(truthy) show <div>
+
+          Alternatively, we can use the && on both:
+          {!selectedTopic && <p>Please select a topic.</p>}
+          Meaning that if we don't have a selectedTopic, the <p> above would be output.
           */}
           {!selectedTopic ? (
             <p>Please select a topic.</p>

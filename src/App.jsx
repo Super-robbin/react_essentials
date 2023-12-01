@@ -1,16 +1,21 @@
+import { useState } from "react";
 import Header from "./components/header/Header.jsx";
 import CoreConcept from "./components/coreConcept/CoreConcept.jsx";
-import TabButton from "./components/TabButton.jsx"
+import TabButton from "./components/TabButton.jsx";
 import { CORE_CONCEPTS } from "./data.js";
 
+// useState is the Hook that will allow us to manage some component specific state,
+// which is simply some data stored by React, you could say,
+// which when changed, will trigger this component function
+// to which this Hook belongs to re-execute, to be reevaluated by React, you could say.
+
 const App = () => {
+  const [tabContent, setTabContent] = useState('Please click a button')
 
-  let tabContent = 'Please click a button'
-
-const handleSelect = (selectedButton) => {
-  // selectedButton => 'components', 'jsx', 'props', 'state'
-  console.log(selectedButton)
-}
+  const handleSelect = (selectedButton) => {
+    // selectedButton => 'components', 'jsx', 'props', 'state'
+    setTabContent(selectedButton);
+  };
 
   return (
     <div>
@@ -42,12 +47,14 @@ const handleSelect = (selectedButton) => {
             We use the handleSelect with the identifier inside to check which button has been clicked,
             although it executes the same function, we get different values for different buttons.
             */}
-              <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
-              <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-              <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
-              <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+            <TabButton onSelect={() => handleSelect("components")}>
+              Components
+            </TabButton>
+            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
+            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
+            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
           </menu>
-          Dynamic Content
+          {tabContent}
         </section>
       </main>
     </div>

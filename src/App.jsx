@@ -4,6 +4,14 @@ import TabButton from "./components/TabButton.jsx"
 import { CORE_CONCEPTS } from "./data.js";
 
 const App = () => {
+
+  let tabContent = 'Please click a button'
+
+const handleSelect = (selectedButton) => {
+  // selectedButton => 'components', 'jsx', 'props', 'state'
+  console.log(selectedButton)
+}
+
   return (
     <div>
       <Header />
@@ -30,11 +38,16 @@ const App = () => {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-              <TabButton>Components</TabButton>
-              <TabButton>JSX</TabButton>
-              <TabButton>Props</TabButton>
-              <TabButton>State</TabButton>
+            {/* 
+            We use the handleSelect with the identifier inside to check which button has been clicked,
+            although it executes the same function, we get different values for different buttons.
+            */}
+              <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
+              <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
+              <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
+              <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
           </menu>
+          Dynamic Content
         </section>
       </main>
     </div>

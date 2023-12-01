@@ -10,10 +10,15 @@
 // It is called component composition.
 // i.e. "Components" in App.jsx
 
-const TabButton = (props) => {
+// onClick prop is a built-in element that listens to the click event and points to a function.
+// The handleClick function can be passed from the parent component too (App.jsx) and then be forwarded
+// to the onClick prop here.
+
+const TabButton = ({ children, onSelect }) => {
+
   return (
     <li>
-      <button>{props.children}</button>
+      <button onClick={onSelect}>{children}</button>
     </li>
   );
 };

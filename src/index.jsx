@@ -5,3 +5,8 @@ import "./index.css";
 
 const entryPoint = document.getElementById("root");
 ReactDOM.createRoot(entryPoint).render(<App />);
+
+
+// Alternatively, we can use non-JSX approach:
+// 1 - import React from 'react';
+// 2 - ReactDOM.createRoot(entryPoint).render(React.createElement(App));

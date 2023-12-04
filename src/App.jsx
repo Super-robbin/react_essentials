@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import Header from "./components/header/Header.jsx";
 import CoreConcept from "./components/coreConcept/CoreConcept";
 import TabButton from "./components/TabButton";
@@ -18,7 +18,12 @@ const App = () => {
   };
 
   return (
-    <div>
+    // If I delete the <div> below, I am getting an error,
+    // that JSX expressions must have one parent element.
+    // Header and main are two siblings elements.
+    // We import and use Fragment(<> - </>) instead of the <div>, which is a react component,
+    // so that we don't have an unnecessary element
+    <>
       <Header />
       <main>
         <section id="core-concepts">
@@ -30,7 +35,7 @@ const App = () => {
 
             {/*
             OR you can use the way below:
-            
+
             {CORE_CONCEPTS.map((conceptItem, index) => (
               <CoreConcept key={index} conceptItem={conceptItem} />
             ))}
@@ -112,7 +117,7 @@ const App = () => {
           )}
         </section>
       </main>
-    </div>
+    </>
   );
 };
 

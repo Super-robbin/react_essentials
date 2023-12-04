@@ -26,11 +26,15 @@ const Examples = () => {
     // <section {...props}> will now basically ensure that all extra props,
     // that might be set on our custom Section component here,
     // will be forwarded to this built-in Section element.
-
     <Section title="Examples" id="examples">
       <Tabs
+        // I want to be able to use the identifier of a component as a value for buttonsContainer prop,
+        // not the component itself with those <angle brackets> but just the identifier,
+        // as a string, for example, "menu".
+        buttonsContainer="menu"
+        // Alternatively, we could have used ButtonsContainer (capital letter) direcly, both here and inside Tabs as props.
 
-      // We used the buttons={<TabButton></TabButton>} as a prop to pass into the Tabs component
+        // We used the buttons={<TabButton></TabButton>} as a prop to pass into the Tabs component
         buttons={
           <>
             {/* 

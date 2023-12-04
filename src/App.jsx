@@ -1,6 +1,6 @@
 import Header from "./components/header/Header";
 import CoreConcepts from "./components/coreConcept/CoreConcepts";
-import Examples from "./components/coreConcept/Examples";
+import Examples from "./components/Examples";
 
 const App = () => {
   return (
